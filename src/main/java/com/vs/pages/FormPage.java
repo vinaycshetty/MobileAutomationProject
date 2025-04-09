@@ -1,7 +1,9 @@
-package com.vs.pageObject.android;
+package com.vs.pages;
 
 import com.vs.utils.AndroidActions;
 import com.vs.utils.Contants;
+import com.vs.utils.DriverFactory;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -13,22 +15,12 @@ import org.openqa.selenium.support.PageFactory;
  * Created by : Vinay Shetty
  * on 07-04-2025 at 22:17
  **/
-public class FormPage extends AndroidActions {
-    /**
-     * driver.findElement(By.id("com.androidsample.generalstore:id/nameField")).sendKeys("Pooja Shetty");
-     * driver.hideKeyboard();
-     * driver.findElement(By.xpath("//android.widget.RadioButton[@text='Female']")).click();
-     * driver.findElement(By.id("android:id/text1")).click();
-     * scrollToText("Belgium");
-     * driver.findElement(By.xpath("//android.widget.TextView[@text='Belgium']")).click();
-     * driver.findElement(By.id("com.androidsample.generalstore:id/btnLetsShop")).click();
-     */
+public class FormPage extends AndroidActions{
+    private AppiumDriver driver;
 
-    AndroidDriver driver;
-
-    public FormPage(AndroidDriver driver) {
-        super(driver);
-        this.driver = driver;
+    public FormPage() {
+        super((AndroidDriver) DriverFactory.getDriver());
+        this.driver = DriverFactory.getDriver();
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 

@@ -1,6 +1,6 @@
-package com.vs.test.storeAppWithFramework;
+package com.vs.test;
 
-import com.vs.pageObject.android.FormPage;
+import com.vs.pages.FormPage;
 import com.vs.base.BaseTest;
 import org.testng.annotations.Test;
 
@@ -12,7 +12,7 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void login(){
-        FormPage formPage = new FormPage(driver);
+        FormPage formPage = new FormPage();
         formPage.EnterName("Vinay Shetty");
         formPage.selectGender("male");
         formPage.selectCountry("Belgium");
